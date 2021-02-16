@@ -1,10 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { receiveUser } from "../actions/userActions";
+import { receiveUser } from "../redux/actions/userActions";
 
 const Welcome = ({ users, addUser }) => {
   const usersArray = Object.values(users);
+
   return (
+    // <div>
+    //   riki.tone
+    // </div>
     <div>
       <ul>
         {usersArray.map((user) => (
