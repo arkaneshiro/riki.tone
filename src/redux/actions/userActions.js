@@ -1,10 +1,10 @@
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
-export const receiveUser = (user) => ({
-  type: RECEIVE_USER,
-  user,
-});
+// export const receiveUser = (user) => ({
+//   type: RECEIVE_USER,
+//   user,
+// });
 
 // export const receiveUserErrors = (errors) => ({
 //   type: RECEIVE_USER_ERRORS,

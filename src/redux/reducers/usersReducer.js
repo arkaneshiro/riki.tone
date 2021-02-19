@@ -1,5 +1,5 @@
 // import action type constants from necessary action file/s
-import { RECEIVE_USER } from "../actions/userActions";
+// import { RECEIVE_USER } from "../actions/userActions";
 
 const initialUsers = {
   1: { name: "Bob Ross", id: 1 },
@@ -11,8 +11,8 @@ export default (state = initialUsers, action) => {
   switch (action.type) {
     // case ACTION_TYPE:
     //  return some kind of modification to newState
-    case RECEIVE_USER:
-      return { ...newState, [action.user.id]: action.user };
+    // case RECEIVE_USER:
+    //   return { ...newState, [action.user.id]: action.user };
     default:
       return newState;
   }

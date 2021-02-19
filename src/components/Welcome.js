@@ -1,33 +1,29 @@
 import React from "react";
-import { connect } from "react-redux";
-import { receiveUser } from "../redux/actions/userActions";
+import styles from '../styles/Welcome.module.css';
+// import { useSelector, useDispatch } from "react-redux";
+// import { receiveUser } from "../redux/actions/userActions";
 
-const Welcome = ({ users, addUser }) => {
-  const usersArray = Object.values(users);
+
+export const Welcome = props => {
+  // const dispatch = useDispatch()
+  // const users = useSelector(state => state.users)
+  // const usersArray = Object.values(users);
 
   return (
-    // <div>
-    //   riki.tone
-    // </div>
-    <div>
-      <ul>
-        {usersArray.map((user) => (
-          <li>{user.name}</li>
-        ))}
-      </ul>
-      <button onClick={() => addUser({ name: "Danny Devito", id: 3 })}>
-        Add Danny Devito
-      </button>
-    </div>
+    <h1 className={styles.title}>
+      riki.tone
+    </h1>
+  //   <div>
+  //     <ul>
+  //       {usersArray.map((user) => (
+  //         <li>{user.name}</li>
+  //       ))}
+  //     </ul>
+  //     <button onClick={() => dispatch(receiveUser({ name: "Danny Devito", id: 3 }))}>
+  //       Add Danny Devito
+  //     </button>
+  //   </div>
   );
 };
 
-const mstp = (state) => ({
-  users: state.users,
-});
-
-const mdtp = (dispatch) => ({
-  addUser: (user) => dispatch(receiveUser(user)),
-});
-
-export default connect(mstp, mdtp)(Welcome);
+export default Welcome;
