@@ -38,14 +38,22 @@ export const Canvas = props => {
     outputGain.gain.value = e.target.value/1000;
   }
 
+
+  const triggerEnvelope = (audioContext, envTarget, amount, attack, decay, baseline) => {
+
+    envTarget.gain.linearRampToValueAtTime(baseline + parseFloat(amount/1000), audioContext.currentTime + attack/1000)
+    // todo: separate up & down to separate functions
+    envTarget.gain.linearRampToValueAtTime(baseline, audioContext.currentTime + decay/1000 + attack/1000)
+  }
+
   return (
     <>
       <h1 className={styles.title}>
         riki.tone
       </h1>
       <Oscillator name="osc2" oscillator={osc2} gain={osc2Gain}/>
-      <ModEnvelope name="osc2->osc1fm env" envTarget={osc2Gain} audioContext={context} maxRange={8000}/>
-      <GainEnvelope name="osc1 vol env" envTarget={osc1Gain} audioContext={context}/>
+      <ModEnvelope name="osc2->osc1fm env" triggerEnvelope={triggerEnvelope} envTarget={osc2Gain} audioContext={context} maxRange={8000}/>
+      <GainEnvelope name="osc1 vol env" triggerEnvelope={triggerEnvelope} envTarget={osc1Gain} audioContext={context}/>
       <div>output gain</div>
       <input type="range" min="0" max="1000" defaultValue="0" onChange={updateOutputGain}></input>
     </>
